@@ -9,14 +9,14 @@ function indent() {
 }
 
 BUILD_DIR="$1"
-SOURCE_DIR="$(dirname $0)/../fonts.tar.gz"
+SOURCE_DIR="$(dirname $0)/.."
 TARGET_DIR="$BUILD_DIR/.fonts"
-wget https://github.com/salesforce-ux/design-system/archive/master.tar.gz -O "$(dirname $0)/../salesforce-ux.tar.gz"
+wget -O - https://github.com/salesforce-ux/design-system/archive/master.tar.gz > "$SOURCE_DIR/master.tar.gz"
 echo "-----> Extracting fonts to $TARGET_DIR"
 
 mkdir -p "$TARGET_DIR"
-tar -xvzf "$SOURCE_DIR" -C "$TARGET_DIR" | indent
+tar -xvzf "$SOURCE_DIR/fonts.tar.gz" -C "$TARGET_DIR" | indent
 
-tar -xvzf "$(dirname $0)/../salesforce-ux.tar.gz" -C "$(dirname $0)/../" | indent
+tar -xvzf "$SOURCE_DIR/master.tar.gz" -C "$SOURCE_DIR" | indent
 
-mv -vf "$(dirname $0)/../design-system-master/assets/fonts/*.ttf" "$TARGET_DIR" | indent
+mv -vf "$SOURCE_DIR/design-system-master/assets/fonts/*.ttf" "$TARGET_DIR" | indent
