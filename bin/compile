@@ -16,6 +16,6 @@ echo "-----> Extracting fonts to $TARGET_DIR"
 
 mkdir -p "$TARGET_DIR"
 tar -xvzf "$SOURCE_DIR" -C "$TARGET_DIR" | indent
-tar -xvzf "$(dirname $0)/../salesforce-ux.tar.gz" -C "/tmp/salesforce-ux" | indent
+tar -xvzf "$(dirname $0)/../salesforce-ux.tar.gz" -C "$(dirname $0)/../salesforce-ux" | indent
 
-mv -vf "/tmp/salesforce-ux/assets/fonts/*.ttf" "$TARGET_DIR" | indent
+mv -vf "$(dirname $0)/../salesforce-ux/assets/fonts/*.ttf" "$TARGET_DIR" | indent
