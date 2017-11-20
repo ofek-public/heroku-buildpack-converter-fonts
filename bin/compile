@@ -20,5 +20,5 @@ mkdir -p "$TARGET_DIR"
 tar -xvzf "$SOURCE_DIR/fonts.tar.gz" -C "$TARGET_DIR" | indent
 
 tar -xvzf "$SOURCE_DIR/master.tar.gz" -C "$SOURCE_DIR" | indent
-ls "$SOURCE_DIR/design-system-master/"
-# mv -vf "$SOURCE_DIR/design-system-master/assets/fonts/*.ttf" "$TARGET_DIR" | indent
+
+mv -vf "$SOURCE_DIR/design-system-master/assets/fonts/"*.ttf "$TARGET_DIR" | indent
